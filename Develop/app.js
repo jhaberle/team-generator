@@ -10,6 +10,38 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+inquirer.prompt([
+    {
+        type: "checkbox",
+        message: "choose position",
+        name: "position",
+        choices: [
+            "Manager",
+            "Developer",
+            "Intern"
+        ]
+    },
+    {
+        type: "input",
+        message: "employee name",
+        name: "name",
+    },
+    {
+        type: "input",
+        message: "employee email address",
+        name: "email",
+    },
+    {
+        type: "input",
+        message: "employee githud id",
+        name: "github",
+    }
+]).then(function(data) {
+    var filename = data.name.toLowerCase().split(' ').join('') + ".json";
+
+    fs.writeFile
+})
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
